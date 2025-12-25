@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Infinity Citizen</title>
+  <meta name="author" content="Michael">
+  <meta name="description" content="Infinity Citizen homepage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Load this ASAP -->
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="common/style.css">
+  <script src="common/script.js" defer></script>
+
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata:700">
+  <link rel="stylesheet" href="modules/nav/style-nav.css">
+  <script src="modules/nav/script-nav.js" defer></script>
+
+
+</head>
+
+<body>
+
+  <!--
+  The navbar system. Only one of side/top is shown at a time. "peek" and
+  "full" are used for the minimized and expanded versions, respectively.
+    - The hamburger is always shown for full access.
+    - There is a side peek, but no top peek.
+    - The "full" nav either has class "side" or class "top" applied to it.
+-->
+  <nav class="hamburger"> <!-- expands the menu to the "full" state -->
+    <a href="javascript:;">
+      <div>&equiv;</div>
+    </a>
+  </nav>
+
+  <nav class="peek side">
+    <a class="dark " href="essays">
+      <div class="left-bump">E</div>
+    </a>
+    <a class="light " href="music">
+      <div class="left-bump">M</div>
+    </a>
+    <a class="dark " href="code">
+      <div class="left-bump">C</div>
+    </a>
+  </nav>
+
+  <nav class="full">
+    <div class="menu-logo">
+      <a href="."> <!-- go home (assuming all relative paths start from root!) -->
+        <img src="assets/logo-small.png">
+      </a>
+      <span class="exit"><a href="javascript:;"><span>&times;</span></a></span>
+    </div>
+    <div class="breadcrumbs">
+      <!-- left for future development -->
+    </div>
+    <a class="dark " href="essays">
+      <div class="square">
+        <div class="left-bump">E</div>
+      </div>
+      <div>SSAYS</div>
+    </a>
+    <a class="light " href="music">
+      <div class="square">
+        <div class="left-bump">M</div>
+      </div>
+      <div>USIC</div>
+    </a>
+    <a class="dark " href="code">
+      <div class="square">
+        <div class="left-bump">C</div>
+      </div>
+      <div>ODE</div>
+    </a>
+  </nav>
+
+
+
+  <div id="main-container"> <!-- forces a 4em margin to avoid nav overlap -->
+    <main>
+      <h1>INFINITY CITIZEN</h1>
+      <!-- "onload" to ensure that image fades in rather than scanlining in.
+             Ugly, but it works, unlike many other things I tried. -->
+      <img class="logo" src="assets/logo-large.png" onload="$(this).css('visibility', 'visible').fadeTo(200, 1);">
+      <p>
+        Greetings! Welcome to my little corner of the web. This site is a
+        portal to all of the personal projects that I work on in my spare
+        time, and I plan on continuing to expand it whenever I can.
+        Go ahead and open up the navigation menu to start exploring!
+      </p>
+      <br>
+      <br>
+      <h5>ABOUT</h5>
+      <p>
+        I'm currently an undergraduate student studying computer science in
+        the United States.
+      </p>
+      <p>
+        I am a fan of tracking my personal entertainment, both for historical
+        purposes and for fun. It's interesting to be able to look back and see
+        what I do for leisure. There are a variety of services available that help to
+        organize this. If you're interested, you can take a look at my books, games, and movies below. (I
+        also try to track <a href="//imdb.com" target="_blank">TV shows</a>,
+        my favorite <a href="//spotify.com" target="_blank">music</a>,
+        and my favorite <a href="//getpocket.com" target="_blank">online
+          articles</a>.)
+      </p>
+
+      <!-- (wrap everything around its own div to do margin 0-auto) -->
+      <div id="widget-container">
+        <!-- WIDGETS -->
+        <!-- Goodreads -->
+        <style type="text/css">
+          .gr_custom_container_1420788534 {
+            /* customize your Goodreads widget container here*/
+            position: relative;
+
+            border: 2px solid gray;
+            border-radius: 10px;
+            padding: 10px 5px;
+            /* NOTE: script.js adds to the bottom padding
+                                    to make it flush with Grouvee. (Don't forget
+                                    to add more books as games grow!) */
+            background-color: #FFFFFF;
+            color: #000000;
+            width: 300px;
+          }
+
+          .gr_custom_container_1420788534 center {
+            position: absolute;
+            bottom: 20px;
+            left: 62px;
+          }
+
+          .gr_custom_header_1420788534 {
+            /* customize your Goodreads header here*/
+            border-bottom: 1px solid gray;
+            width: 100%;
+            margin-bottom: 5px;
+            text-align: center;
+            font-size: 150%;
+            font-family: "Georgia", serif;
+          }
+
+          .gr_custom_header_1420788534 a {
+            color: #660;
+          }
+
+          .gr_custom_each_container_1420788534 {
+            /* customize each individual book container here */
+            position: relative;
+            width: 100%;
+            clear: both;
+            margin-bottom: 10px;
+            overflow: auto;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #aaa;
+            text-align: left;
+          }
+
+          .gr_custom_book_container_1420788534 {
+            /* customize your book covers here */
+            overflow: hidden;
+            height: 60px;
+            float: left;
+            margin-right: 4px;
+            width: 39px;
+          }
+
+          .gr_custom_title_1420788534 * {
+            /* customize your book titles here */
+            font-family: "Georgia", serif;
+            color: #660;
+          }
+
+          .gr_custom_author_1420788534 {
+            /* customize your author names here */
+            font-size: 12px;
+            font-family: "Georgia", serif;
+          }
+
+          .gr_custom_author_1420788534 a {
+            color: #660;
+          }
+        </style>
+        <script src="https://goo.gl/vgKLa8" type="text/javascript" charset="utf-8" defer></script>
+        <div id="gr_custom_widget_1420788534"></div>
+
+        <!-- Grouvee -->
+        <style type="text/css">
+          .grouvee_game {
+            /* customize game cover container div here */
+            float: left;
+            width: 50px;
+            height: 50px;
+            padding: 0px 0px;
+            overflow: hidden;
+          }
+        </style>
+        <script src="https://www.grouvee.com/widgets/shelf/16020/?number=999" type="text/javascript" charset="utf-8"
+          defer></script>
+        <div id="grouvee_widget_16020"></div>
+
+        <!-- Flixster -->
+        <div id="flixster_widget">
+
+        </div>
+
+
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <hr>
+    <p><strong>CONTACT</strong> michael@infinitycitizen.com</p>
+    <p><strong>UPDATED</strong> Jan 09, 2015</p>
+    <br>
+  </footer>
+</body>
+
+</html>
